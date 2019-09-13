@@ -1,0 +1,53 @@
+/**
+ * INTRO
+ */
+
+.Intro {
+    font-family: $headline_font;
+    height: 100%;
+    padding: 0px;
+    position: relative;
+    overflow: hidden;
+    &--single-photo {
+        background: url(#{$imagesPath}/intro.jpg) no-repeat fixed 50% 50% / cover;
+        &:after {
+            z-index: 10;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            content: '';
+            @include overlay($black);
+        }
+    }
+    &--minimal{
+        background: #5BC0BE;
+    }
+    .IntroTyping {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 20;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        color: $white;
+        &__body {
+            font-size: 4em;
+            li {
+                font-weight: bold;
+            }
+        }
+    }
+    .StartArrow {
+        z-index: 30;
+        color: $white;
+        position: absolute;
+        bottom: 40px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+}

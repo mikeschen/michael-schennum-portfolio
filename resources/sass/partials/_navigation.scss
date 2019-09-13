@@ -1,0 +1,184 @@
+/**
+ * NAVIGATION
+ */
+
+.Navigation {
+    transition: width 2s ease-in-out;
+    width: 100%;
+    &__bar {
+        width: 100%;
+        z-index: 1000;
+        padding: 10px 30px;
+        background: transparent;
+        transition: all $pageSwithingTime $easeInOutQuad;
+        .navbar-nav {
+            li {
+                a {
+                    font-family: $headline_font;
+                    letter-spacing: 2px;
+                    @include transition(all 0.3s ease-in-out);
+                    color: $white;
+                    text-transform: uppercase;
+                    font-size: 10px;
+                    position: relative;
+                    padding: 15px 10px;
+                    margin-left: 10px;
+                    &:after {
+                        @include transition(all 0.3s cubic-bezier(1.0, 0.5, 0.8, 1.0));
+                        content: '';
+                        width: 0px;
+                        height: 1px;
+                        background: $white;
+                        position: absolute;
+                        bottom: 8px;
+                        right: 0px;
+                    }
+                    &:before {
+                        @include transition(all 0.3s cubic-bezier(1.0, 0.5, 0.8, 1.0));
+                        content: '';
+                        width: 0px;
+                        height: 1px;
+                        background: $white;
+                        position: absolute;
+                        top: 8px;
+                        left: 0;
+                    }
+                }
+                a:hover {
+                    background-color: transparent;
+                    color: $light;
+                    &:after {
+                        width: 40px;
+                        right: calc(50% - 20px);
+                    }
+                }
+                &.active {
+                    a:after {
+                        width: 20px;
+                        right: calc(50% - 10px);
+                    }
+                    a:before {
+                        width: 20px;
+                        left: calc(50% - 10px);
+                    }
+                }
+                a:focus,
+                a:active {
+                    background-color: transparent;
+                }
+            }
+        }
+        .navbar-brand {
+            padding: 10px 0 0 0px;
+        }
+    }
+    &--scrolled {
+        .Navigation {
+            &__bar {
+                background: $black;
+            }
+        }
+    }
+    &__mobile-menu {
+        display: none;
+    }
+}
+
+@media all and (max-width: 767px) {
+    .Navigation {
+        &__mobile-menu {
+            display: inline;
+            float: right;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 20px;
+            margin: 15px 0 0 0;
+            span {
+                @include transition(all 0.3s ease-in-out);
+                display: block;
+                width: 35px;
+                height: 2px;
+                background-color: $white;
+            }
+            &.--active {
+                span {
+                    &:nth-of-type(1) {
+                        transform: rotate(-45deg) translateY(12px);
+                    }
+                    &:nth-of-type(2) {
+                        opacity: 0;
+                    }
+                    &:nth-of-type(3) {
+                        transform: rotate(45deg) translateY(-12px);
+                    }
+                }
+            }
+            &__bar {
+                position: relative;
+            }
+        }
+        &__navbar-nav {
+            position: fixed;
+            z-index: -1;
+            bottom: 0;
+            height: 0;
+            overflow: hidden;
+            left: 0;
+            width: 100%;
+            background: $black;
+            transition: all 0.5s ease-in-out;
+            .navbar-nav {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                li {
+                    a {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+        &.--mobile-active {
+            .Navigation {
+                &__navbar-nav {
+                    height: 100%;
+                    padding-top: 70px;
+                }
+            }
+        }
+    }
+}
+
+
+/**
+ * TOP BAR
+ */
+
+.Topbar {
+    transition: all $pageSwithingTime $easeInOutQuad;
+    background: $black;
+    padding: 15px 30px;
+    color: white;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-size: 2em;
+    z-index: 1;
+    &__goback {
+        float: left;
+        cursor: pointer;
+        a {
+            color: $white;
+        }
+    }
+    &__title {
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+}

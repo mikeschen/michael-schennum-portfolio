@@ -1,0 +1,38 @@
+/**
+ * CONTACT FORM
+ */
+
+.Form {
+    background: $black;
+    padding: 40px;
+    color: $white;
+    font-size: 14px;
+    &__group {
+        border-bottom: 1px solid rgba($white, 0.15);
+        &.Form--error {
+            border-bottom-color: $red;
+        }
+    }
+    &__label {
+        color: rgba($white, 0.6);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 10px;
+        font-family: $headline_font;
+    }
+    ::selection {
+        background: rgba($white, 0.15);
+    }
+    &__success {
+        color: $white;
+        text-align: center;
+        padding: 20px;
+        background: $green;
+    }
+    &__error {
+        color: $white;
+        text-align: center;
+        padding: 20px;
+        background: $red;
+    }
+}

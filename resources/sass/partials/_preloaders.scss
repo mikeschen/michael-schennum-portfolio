@@ -1,0 +1,328 @@
+$preloader_1_elements: 10;
+$preloader_2_elements: 6;
+$preloader_3_elements: 4;
+$preloader_4_elements: 16;
+$preloader_6_elements: 6;
+$preloader_7_elements: 6;
+$preloader_8_elements: 6;
+
+/**
+ * PRELOADERS
+ */
+
+.Preloader {
+    position: fixed;
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-out;
+    background: $white;
+    &.--loaded {
+        opacity: 0;
+    }
+    &__center {
+        .Preloader__element {
+            background: $black;
+        }
+        &.--v1 {
+            display: flex;
+            .Preloader__element {
+                width: 20px;
+                height: 20px;
+                margin: 5px;
+                border-radius: 100%;
+                animation: upAndDown 1s infinite;
+                @for $i from 1 to $preloader_1_elements + 1 {
+                    &:nth-of-type(#{$i}) {
+                        animation-delay: unquote( (($i - $preloader_1_elements) * 100) + 'ms');
+                    }
+                }
+            }
+        }
+        &.--v2 {
+            display: flex;
+            .Preloader__element {
+                width: 20px;
+                height: 20px;
+                margin: 8px;
+                border-radius: 100%;
+                animation: biggize 1s infinite ease-out;
+                @for $i from 1 to $preloader_2_elements + 1 {
+                    &:nth-of-type(#{$i}) {
+                        animation-delay: unquote( (($i - $preloader_2_elements) * 100) + 'ms');
+                    }
+                }
+            }
+        }
+        &.--v3 {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            transform: rotate(45deg);
+            .Preloader__element {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                animation: smallize 2s linear infinite;
+                animation-delay: -1500ms;
+                @for $i from 2 to $preloader_3_elements + 1 {
+                    &:nth-of-type(#{$i}) {
+                        animation-delay: unquote( (($i - $preloader_3_elements) * 500) + 'ms');
+                    }
+                }
+            }
+        }
+        &.--v4 {
+            display: flex;
+            width: 80px;
+            flex-wrap: wrap;
+            .Preloader__element {
+                width: 16px;
+                height: 16px;
+                margin: 2px;
+                animation: animationFour 2s infinite;
+                @for $i from 1 to $preloader_4_elements + 1 {
+                    &:nth-of-type(#{$i}) {
+                        animation-delay: unquote( (($i - $preloader_4_elements) * 100) + 'ms');
+                    }
+                }
+            }
+        }
+        &.--v5 {
+            display: flex;
+            width: 80px;
+            flex-wrap: wrap;
+            transform: rotate(45deg);
+            .Preloader__element {
+                width: 16px;
+                height: 16px;
+                margin: 2px;
+                opacity: 0;
+                animation: animationFive 1.2s infinite ease-in-out;
+                &:nth-of-type(9),
+                &:nth-of-type(14) {
+                    animation-delay: 200ms;
+                }
+                &:nth-of-type(5),
+                &:nth-of-type(10),
+                &:nth-of-type(15) {
+                    animation-delay: 400ms;
+                }
+                &:nth-of-type(1),
+                &:nth-of-type(6),
+                &:nth-of-type(11),
+                &:nth-of-type(16) {
+                    animation-delay: 600ms;
+                }
+                &:nth-of-type(2),
+                &:nth-of-type(7),
+                &:nth-of-type(12) {
+                    animation-delay: 800ms;
+                }
+                &:nth-of-type(3),
+                &:nth-of-type(8) {
+                    animation-delay: 1000ms;
+                }
+                &:nth-of-type(4) {
+                    animation-delay: 1200ms;
+                }
+            }
+        }
+        &.--v6 {
+            display: flex;
+            .Preloader__element {
+                width: 16px;
+                height: 16px;
+                margin: 2px;
+                animation: animationSix 1s infinite;
+                @for $i from 1 to $preloader_6_elements + 1 {
+                    &:nth-of-type(#{$i}) {
+                        animation-delay: unquote( ($i * 100) + 'ms');
+                    }
+                }
+            }
+        }
+        &.--v7 {
+            position: relative;
+            height: 120px;
+            width: 120px;
+            margin-top: -60px;
+            margin-left: -60px;
+            .Preloader__element {
+                animation: animationSeven 1.2s cubic-bezier(.87, .23, .2, .79) infinite;
+                border-radius: 100%;
+                border: 4px solid transparent;
+                border-left-color: $black;
+                border-right-color: $black;
+                background: transparent;
+                position: absolute;
+                top: 0;
+                left: 0;
+                @for $i from 1 to $preloader_7_elements + 1 {
+                    &:nth-of-type(#{$i}) {
+                        margin-top: unquote(( 6 * $i) + 'px');
+                        margin-left: unquote((6 * $i) + 'px');
+                        width: unquote(170 - ($i * 12) + 'px');
+                        height: unquote(170 - ($i * 12) + 'px');
+                        animation-delay: unquote( (($i - $preloader_7_elements) * 40) + 'ms');
+                    }
+                }
+            }
+        }
+        &.--v8 {
+            position: relative;
+            height: 120px;
+            width: 120px;
+            margin-top: -60px;
+            margin-left: -60px;
+            .Preloader__element {
+                animation: animationSeven 1.5s ease-out alternate infinite;
+                border-radius: 100%;
+                border: 4px solid transparent;
+                background: transparent;
+                position: absolute;
+                top: 0;
+                left: 0;
+                &:nth-of-type(2n - 1) {
+                    border-left-color: $black;
+                }
+                &:nth-of-type(2n) {
+                    border-right-color: $black;
+                }
+                &:nth-of-type(3n) {
+                    border-top-color: $black;
+                }
+                &:nth-of-type(4n) {
+                    border-bottom-color: $black;
+                }
+                @for $i from 1 to $preloader_8_elements + 1 {
+                    &:nth-of-type(#{$i}) {
+                        margin-top: unquote(( 6 * $i) + 'px');
+                        margin-left: unquote((6 * $i) + 'px');
+                        width: unquote(170 - ($i * 12) + 'px');
+                        height: unquote(170 - ($i * 12) + 'px');
+                        animation-duration: unquote(1200 - ($i * 100 - 100) + 'ms');
+                    }
+                }
+            }
+        }
+    }
+    &.--reverse {
+        background: $black;
+        .Preloader__element {
+            background: $white;
+        }
+        &.--v7 {
+            .Preloader__element {
+                background: transparent;
+                border-left-color: $white;
+                border-right-color: $white;
+            }
+        }
+        &.--v8 {
+            .Preloader__element {
+                background: transparent;
+                &:nth-of-type(2n - 1) {
+                    border-left-color: $white;
+                }
+                &:nth-of-type(2n) {
+                    border-right-color: $white;
+                }
+                &:nth-of-type(3n) {
+                    border-top-color: $white;
+                }
+                &:nth-of-type(4n) {
+                    border-bottom-color: $white;
+                }
+            }
+        }
+    }
+}
+
+@keyframes upAndDown {
+    50% {
+        transform: translateY(40px);
+    }
+}
+
+@keyframes smallize {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    15% {
+        transform: scale(0.5);
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(3);
+    }
+}
+
+@keyframes biggize {
+    50% {
+        transform: scale(1.5);
+    }
+}
+
+@keyframes circlize {
+    50% {
+        transform: rotate(360deg);
+        border-radius: 0;
+    }
+}
+
+@keyframes animationFour {
+    50% {
+        transform: scale(0.8);
+    }
+}
+
+@keyframes animationFive {
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes animationSix {
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes animationSeven {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes quaterRotate {
+    0% {
+        transform: rotate(45deg);
+    }
+    25% {
+        transform: rotate(135deg);
+    }
+    50% {
+        transform: rotate(225deg);
+    }
+    75% {
+        transform: rotate(315deg);
+    }
+    100% {
+        transform: rotate(405deg);
+    }
+}
