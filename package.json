@@ -41,7 +41,7 @@
     "bootstrap-sass": "^3.3.7",
     "et-line": "^1.0.1",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.2.1",
+    "jquery": "^3.5.0",
     "magnific-popup": "^1.1.0",
     "owl.carousel": "^2.2.0",
     "vue": "^2.1.10",
